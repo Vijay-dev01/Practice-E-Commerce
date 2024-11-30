@@ -1,0 +1,46 @@
+@import "./ShortcutCode.scss";
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px 10%;
+  width: 100%;
+  background: $header-bg-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  backdrop-filter: blur(12px);
+
+  .logo {
+    font-size: 32px;
+    color: $font-color;
+    font-weight: 700;
+  }
+
+  .navbar {
+    a {
+      position: relative;
+      font-size: 18px;
+      color: $font-color;
+      font-weight: 500;
+      margin-left: 40px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: $font-color;
+        transition: width $hover-effect-duration;
+      }
+
+      &:hover::before {
+        width: 100%;
+      }
+    }
+  }
+}
