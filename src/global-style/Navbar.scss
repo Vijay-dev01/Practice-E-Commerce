@@ -1,4 +1,4 @@
-@import "./ShortcutCode.scss";
+@use "./ShortcutCode.scss" as shortcut;
 
 .header {
   position: fixed;
@@ -6,7 +6,7 @@
   left: 0;
   padding: 20px 10%;
   width: 100%;
-  background: $header-bg-color;
+  background: shortcut.$header-bg-color;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,7 +15,7 @@
 
   .logo {
     font-size: 32px;
-    color: $font-color;
+    color: shortcut.$font-color;
     font-weight: 700;
   }
 
@@ -23,7 +23,7 @@
     a {
       position: relative;
       font-size: 18px;
-      color: $font-color;
+      color: shortcut.$font-color;
       font-weight: 500;
       margin-left: 40px;
 
@@ -34,8 +34,8 @@
         left: 0;
         width: 0;
         height: 2px;
-        background: $font-color;
-        transition: width $hover-effect-duration;
+        background: shortcut.$font-color;
+        transition: width shortcut.$hover-effect-duration;
       }
 
       &:hover::before {
