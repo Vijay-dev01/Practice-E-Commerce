@@ -15,7 +15,7 @@ const images: Image[] = [
 const Home: React.FC = () => {
   return (
     <div className='sliding-img-container'>
-      <div className='hhhh'>
+      <div className='slider-body'>
       <SimpleImageSlider
         width={1000}
         height={500}
