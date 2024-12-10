@@ -13,7 +13,7 @@ const images: Image[] = [
 ]
 
 const Home: React.FC = () => {
-  return (
+  return ( 
     <div className='sliding-img-container'>
       <div className='slider-body'>
         <SimpleImageSlider
