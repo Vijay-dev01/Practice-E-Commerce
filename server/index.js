@@ -12,8 +12,10 @@ mongoose
   .catch((err) => err);
 
 const databaseSeeder = require("./databaseseeder");
-
+const userRouter = require("./routes/User");
+app.use(express.json());
 app.use("/api/v1", databaseSeeder);
+app.use("/api/v1", userRouter);
 
 app.listen(PORT, () => {
   console.log(`Server lisening to a port: ${PORT}`);
