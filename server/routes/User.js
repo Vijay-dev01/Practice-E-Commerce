@@ -2,6 +2,7 @@ const express = require("express");
 const userRoute = express.Router();
 const AsyncHandler = require("express-async-handler");
 const User = require("../models/user");
+const genarateToken = require("../tokenGenerated");
 
 userRoute.post(
   "/login",
@@ -15,7 +16,7 @@ userRoute.post(
         name: user.name,
         email: user.email,
         isAdmin: user.isAdmin,
-        token: null,
+        token: genarateToken(user._id),
         createdAt: user.createdAt,
       });
     } else {
