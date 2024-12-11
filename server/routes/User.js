@@ -13,7 +13,7 @@ userRoute.post(
       res.json({
         _id: user.id,
         name: user.name,
-        email: user.email,  
+        email: user.email,
         isAdmin: user.isAdmin,
         token: null,
         createdAt: user.createdAt,
@@ -25,4 +25,34 @@ userRoute.post(
   })
 );
 
+userRoute.post(
+  "/register",
+  AsyncHandler(async (req, res) => {
+    const { name, email, password } = req.body;
+    const existUser = await User.findOne({ email });
+    if (existUser) {
+      res.send(400);
+      throw new Error("User already exits");
+    } else {
+      const user = await User.create({
+        name,
+        email,
+        password,
+      });
+
+      if (user) {
+        res.status(201).json({
+          _id: user.id,
+          name: user.name,
+          email: user.email,
+          isAdmin: user.isAdmin,
+          createdAt: user.createdAt,
+        });
+      } else {
+        res.status(400);
+        throw new Error("User not exist");
+      }
+    }
+  })
+);
 module.exports = userRoute;
