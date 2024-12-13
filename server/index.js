@@ -13,9 +13,13 @@ mongoose
 
 const databaseSeeder = require("./databaseseeder");
 const userRouter = require("./routes/User");
+const productRouter = require("./routes/Product");
+
 app.use(express.json());
-app.use("/api/v1", databaseSeeder);
-app.use("/api/v1", userRouter);
+
+app.use("/api/v1/seeder", databaseSeeder);
+app.use("/api/v1/user", userRouter);
+app.use("/api/v1/products", productRouter);
 
 app.listen(PORT, () => {
   console.log(`Server lisening to a port: ${PORT}`);
