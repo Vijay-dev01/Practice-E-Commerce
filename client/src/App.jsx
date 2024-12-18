@@ -1,11 +1,20 @@
-import './App.css'
-import Navbar from './Layouts/Navbar'
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  // Navigate,
+} from "react-router-dom";
+import Home from './pages/Home';
 
 function App() {
 
   return (
     <>
-      <Navbar/>
+     <Router>
+      <Routes>
+        <Route exact path='/' element={<Home />} />
+      </Routes>
+      </Router>
     </>
   )
 }
